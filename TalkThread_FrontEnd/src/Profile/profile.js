@@ -161,7 +161,7 @@ const UserProfile = () => {
       }} className='bg-secondary'>
         <Box sx={{
           height: '100vh',
-          maxWidth: 600,
+          maxWidth: 800,
           margin: 'auto',
           backgroundColor: 'white',
           borderRadius: 2,

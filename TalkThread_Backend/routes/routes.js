@@ -5,6 +5,7 @@ const ConversationController = require('../controllers/conversation');
 const MessageController=require('../controllers/message');
 const userController =require('../controllers/userController');
 const CreateUserProfile=require('../controllers/CreateProfile');
+const Postimage=require('../controllers/PostImage');
 // const message = require('../controllers/message'); 
 // Route for user signup
 router.post('/signup', LoginController.signup);
@@ -22,4 +23,5 @@ router.get('/Search',userController.getAllUsers);
 router.get('/conversation',ConversationController.ConversationDetails);
 router.put('/conversation', ConversationController.updateConversation);
 router.put('/forgotPassword', LoginController.forgotPassword);
+router.post('/Createpost',Postimage.uploadPost);
 module.exports = router;

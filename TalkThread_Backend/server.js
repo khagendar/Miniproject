@@ -57,6 +57,7 @@ io.on("connection", async (socket) => {
       console.log(e);
     }
   }
+});
 
   // We can write our socket event listeners in here...
   socket.on("friend_request", async (data) => {

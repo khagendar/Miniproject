@@ -72,7 +72,7 @@ export default function Login({ action }) {
         navigate('/home'); // Navigate to the chat page after login
       } else {
         const res = await auth.signup(details); // Call the signup method from AuthContext
-        console.log(res.bio + " "+res.profile);
+        console.log(res.data);
         toast.success("Signup successful");
         navigate('/createprofile'); // Navigate to the profile creation page after signup
       }

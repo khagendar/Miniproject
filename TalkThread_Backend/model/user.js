@@ -39,6 +39,9 @@ const UserSchema = new mongoose.Schema(
     following : [
       {type : mongoose.Schema.Types.ObjectId, ref : 'User'}
     ],
+    followers : [
+      {type : mongoose.Schema.Types.ObjectId, ref : 'User'}
+    ],
     blockedUsers: [
       { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
     ], // Array of blocked users

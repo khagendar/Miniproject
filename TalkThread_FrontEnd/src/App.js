@@ -40,7 +40,7 @@ function AppContent() {
               <Route path="/CreateProfile" element ={<CreateProfile />} />
               <Route path="/home" element={<Home/>}/>
               <Route path="/Profile" element={<UserProfile/>}/>
-              <Route path="/Create" element={<Createpost/>}/>
+              <Route path="/Createpost" element={<Createpost/>}/>
               <Route path="/Search" element={<Search/>}/>
             </Route>
           </Routes>
