@@ -14,17 +14,26 @@ export default function CreateProfile() {
   const [snackbarSeverity, setSnackbarSeverity] = useState('error');
   const [redirect, setRedirect] = useState(false); // State to control redirection
   const auth = useAuth(); 
+  const [image,setImage]=useState(null);
 
   // Handle avatar upload
   const handleAvatarChange = (event) => {
+    event.preventDefault();
     const file = event.target.files[0];
     if (file) {
       const reader = new FileReader();
+      setImage(file);
       reader.onloadend = () => {
         setAvatar(reader.result);
       };
       reader.readAsDataURL(file);
+      console.log(file);
     }
+    console.log(avatar);
+    // if(file){
+    //   console.log(file);
+    //   setAvatar(file);
+    // }
   };
 
   // Validate username and bio
@@ -57,9 +66,10 @@ export default function CreateProfile() {
     formData.append('email', auth.user.email);
     
     if (avatar) {
-      const response = await fetch(avatar);
-      const blob = await response.blob();
-      formData.append('profile', blob, 'avatar.png');
+      // const response = await fetch(avatar);
+      // const blob = await response.blob();
+      console.log(avatar)
+      formData.append('profile', image);
     }
 
     try {
@@ -84,7 +94,7 @@ export default function CreateProfile() {
 
   // Redirect to dashboard if profile is created successfully
   if (redirect) {
-    return <Navigate to="/dashboard" replace />;
+    return <Navigate to="/home" replace />;
   }
 
   return (

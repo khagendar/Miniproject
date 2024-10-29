@@ -28,7 +28,7 @@ const UserSchema = new mongoose.Schema(
       required: true
     },
     profile: {
-      type: String, 
+      type: Buffer, //change string to buffer
       default: null 
     },
     bio: {
@@ -36,6 +36,9 @@ const UserSchema = new mongoose.Schema(
       maxlength: 160, 
       default: null 
     },
+    following : [
+      {type : mongoose.Schema.Types.ObjectId, ref : 'User'}
+    ],
     blockedUsers: [
       { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
     ], // Array of blocked users

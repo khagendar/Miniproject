@@ -5,11 +5,12 @@ class CreateUserProfile {
   async CreateProfile(req, res) {
     try {
       const { username, bio,email } = req.body;
-      console.log(req.file.filename);
-      const profileImg = req.file ? `${req.file.filename}` : null; // Save only the relative path
+      console.log("file received")
+      // console.log(req.file.buffer);
+      const profileImg = req.file ? `${req.file.buffer}` : null; // Save only the relative path
+      console.log(profileImg);
 
-
-      console.log('Received data:', { username, bio, profileImg });
+      console.log('Received data:', { username, bio,profileImg });
 
       // Find the existing user by their username (or use another unique field like email)
       const user = await User.findOne({ email });
@@ -50,7 +51,7 @@ class CreateUserProfile {
         username: user.username,
         email: user.email,
         bio: user.bio,
-        profile: user.profile,
+        profile: user.profile,//using buffer instead of string
         role: user.role,
         blockedUsers: user.blockedUsers, // Optional: include blocked users if necessary
       };
